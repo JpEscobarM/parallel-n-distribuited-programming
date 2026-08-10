@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MENSAGEM 60
+#define MENSAGEM 120
 
 void main(int argc, char **argv){
 
