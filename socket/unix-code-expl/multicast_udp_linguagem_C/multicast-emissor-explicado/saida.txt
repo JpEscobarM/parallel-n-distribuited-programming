@@ -1,0 +1,22 @@
+Diferente do receptor o emissor não precisa entrar no grupo do multicast com IP_ADD_MEMBERSHIP, ele só envia a mensagem pro grupo:
+
+cria socket UDP
+      ↓
+configura destino
+239/224.x.x.x : PORTA
+      ↓
+sendto()
+      ↓
+grupo multicast
+      ↓
+receptores inscritos recebem
+      ↓
+fecha socket
+
+                    "Exemplo, multicast!"
+                              |
+                              v
+                       224.0.0.1:5000
+                         /     |     \
+                        v      v      v
+                       A       B       C

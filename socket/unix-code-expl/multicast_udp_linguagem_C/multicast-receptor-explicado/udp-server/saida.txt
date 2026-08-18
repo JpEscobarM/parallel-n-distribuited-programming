@@ -1,0 +1,27 @@
+para conferir a saida basta rodar o comando:
+
+ss -lunp | grep 5000
+
+resultado:
+jp@PC058:~$ ss -lunp | grep 5000
+UNCONN    0         0                   0.0.0.0:5000            0.0.0.0:*        users:(("udp_server",pid=3809,fd=3))
+
+significado:
+UNCONN
+→ é UDP, então não existe uma conexão estabelecida como no TCP
+
+0.0.0.0:5000
+→ o socket está associado à porta 5000
+→ em qualquer interface IPv4 local
+
+0.0.0.0:*
+→ não existe um destino remoto fixo
+
+udp_server
+→ nome do processo
+
+pid=3809
+→ PID do processo
+
+fd=3
+→ descritor de arquivo do socket dentro desse processo
