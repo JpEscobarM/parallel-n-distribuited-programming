@@ -1,0 +1,21 @@
+CLIENTE                                  SERVIDOR
+   |                                        |
+   | socket()                               | socket()
+   |                                        | bind()
+   |                                        | listen()
+   |                                        | accept()  ← bloqueado
+   |                                        |
+   | connect(172.24.226.101, 5001) -------->|
+   |                                        | accept() retorna
+   |                                        | fork()
+   |                                        |
+   | send("MENSAGEM DE TESTE\0") ---------->|
+   |                                        | recv()
+   |                                        |
+   |                           "MENSAGEM DE TESTE"
+   |                                        |
+   |<--------- send("Essa é a resposta...") |
+   |                                        |
+   | recv()                                 |
+   |                                        |
+   | "Essa é a resposta do servidor"        |
