@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <mpi.h>
 
 #define  alpha 0.25
 #define CICLOS 10000
@@ -91,7 +90,7 @@ void copia_matriz(float **origem, float **destino)
 
 int main(void)
 {
-    printf("\nGerando matriz...\n");
+    printf("\n<SEQUENCIAL>Gerando matriz...\n");
 
     float **matriz = NULL;
     float **matrizResultante = NULL;

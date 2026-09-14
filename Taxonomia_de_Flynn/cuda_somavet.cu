@@ -4,6 +4,7 @@
 
 __global__  void somavet(float* A, float* B, float* C){
 	int i = threadIdx.x;
+	printf("\n%d",i);
 	C[i] = A[i] + B[i];
 }
 
@@ -25,9 +26,9 @@ int  main(){
         cudaMemcpy(C, ptrC, N*sizeof(float),  cudaMemcpyDeviceToHost);
   
         for (int i=0; i<N; i++){
-              printf("C[%d]=%f\n",i,C[i]);
+              printf("\nC[%d]=%f",i,C[i]);
 	}
-
+			printf("\n");
         cudaFree(ptrA);
         cudaFree(ptrB);
         cudaFree(ptrC);
