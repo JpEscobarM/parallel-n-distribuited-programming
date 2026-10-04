@@ -32,11 +32,16 @@ int main(int argc, char **argv){
 	//ENVIANDO TEXTO PARA O SERVIDOR
    char msg[100]= "o jogo";
 
-   send(soquete,msg,strlen(msg)+1,0);
-   recv(soquete,msg,100,0);
+   //send(soquete,msg,strlen(msg)+1,0);
+	
+  while(1) {
 
+	recv(soquete,msg,100,0);
+	printf("Retorno %s", msg);
+	
+  }
    
-   printf("Retorno %s", msg);
+   
 
 //FECHA O SOCKET
 	close(soquete);
